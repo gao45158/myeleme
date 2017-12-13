@@ -6,13 +6,19 @@ import ratingsView from '../components/ratings/ratingsView';
 
 Vue.use(Router)
 
-var routes = [
-  { path: '/seller', component: sellerView },
-  { path: '/goods', component: goodsView },
-  { path: '/ratings', component: ratingsView }
+var routes = [{
+    path: '/seller',
+    component: sellerView
+  },
+  {
+    path: '/goods',
+    component: goodsView
+  },
+  {
+    path: '/ratings',
+    component: ratingsView
+  }
 ]
-
-
 
 export default new Router({
   routes
