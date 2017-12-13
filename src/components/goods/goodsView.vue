@@ -1,6 +1,6 @@
 <template>
   <div>
-      goods页面
+      goods页面aaa
   </div>
 </template>
 
