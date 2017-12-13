@@ -12,6 +12,8 @@ var routes = [
   { path: '/ratings', component: ratingsView }
 ]
 
+
+
 export default new Router({
   routes
 })
