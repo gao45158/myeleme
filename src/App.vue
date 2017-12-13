@@ -8,7 +8,7 @@
         <router-link to="/goods">评价</router-link>
       </div>
       <div class="tab-item">
-        <router-link to="/ratings">商家111</router-link>
+        <router-link to="/ratings">商家</router-link>
       </div>
     </div>
     <div class="content">
@@ -24,5 +24,5 @@ export default {
 </script>
 
 <style lang="stylus">
-
+  
 </style>
