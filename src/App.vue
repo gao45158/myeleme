@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <headerView :seller="seller"></headerView>
+    <headerView :seller="seller" />
     <div class="tab border-1px">
       <div class="tab-item">
         <router-link to="/goods">商品</router-link>
@@ -40,8 +40,9 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   @import './common/stylus/index'
+
   .tab
     display flex
     width 100%

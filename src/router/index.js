@@ -17,6 +17,9 @@ var routes = [{
   {
     path: '/ratings',
     component: ratingsView
+  },{
+    path: '/',
+    redirect: '/goods'
   }
 ]
 
