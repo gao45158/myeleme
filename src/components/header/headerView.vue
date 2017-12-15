@@ -85,7 +85,7 @@
     },
     methods: {
       detailShow() {
-        this.showDetail = true
+        this.showDetail = true;
       },
       detailClose() {
         this.showDetail = false

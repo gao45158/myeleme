@@ -31,8 +31,8 @@ export default {
   created () {
     this.$http.get('http://localhost:3000/seller').then((response) => {
       var response = response.body;
-      this.seller = response
-    })
+      this.seller = response;
+    });
   },
   components: {
     headerView

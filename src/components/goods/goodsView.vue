@@ -35,11 +35,13 @@
         </li>
       </ul>
     </div>
+    <shopcartView />
   </div>
 </template>
 
 <script>
 import BScroll from 'better-scroll'
+import shopcartView from '../shopcart/shopcartView'
 
 export default {
   name: 'goodsView',
@@ -105,6 +107,9 @@ export default {
         this.listHeight.push(height);
       }
     }
+  },
+  components: {
+    shopcartView
   }
 }
 </script>
@@ -117,7 +122,7 @@ export default {
     position absolute
     width 100%
     top 174px
-    bottom 46px
+    bottom 48px
     overflow hidden
     .menu-wrapper
       flex 0 0 80px
@@ -173,12 +178,11 @@ export default {
       .food-item
         width 100%
         display flex
-        margin  18px
+        margin  18px 18px 0 18px
         padding-bottom 18px
         border-1px(rgba(7, 17, 27, 0.1))
         &.last-child
           border-none()
-          padding-bottom 0
         .icon
           flex 0 0 57px
           margin-right 10px
