@@ -35,7 +35,7 @@
         </li>
       </ul>
     </div>
-    <shopcartView />
+    <shopcartView :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice" />
   </div>
 </template>
 
@@ -45,6 +45,7 @@ import shopcartView from '../shopcart/shopcartView'
 
 export default {
   name: 'goodsView',
+  props: ['seller'],
   data() {
     return {
       classMap: [],
@@ -176,7 +177,6 @@ export default {
         color rgba(147, 153, 159, 1)
         background #f3f5f7
       .food-item
-        width 100%
         display flex
         margin  18px 18px 0 18px
         padding-bottom 18px
@@ -199,7 +199,9 @@ export default {
             color rgba(147, 153, 159, 1)
           .desc
             margin-bottom 8px
-            line-height 12px
+            line-height 14px
+            max-height 14px
+            overflow hidden
           .extra
             line-height 12px
             .count
