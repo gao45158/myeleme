@@ -11,9 +11,11 @@
     </div>
     <div class="foods-wrapper" ref="foodsWrapper">
       <ul>
+        <!-- item: 代表商品分类 -->
         <li v-for="item in goods" class="food-list food-list-hook">
           <h1 class="title">{{ item.name }}</h1>
           <ul>
+            <!-- food: 商品分类下的具体商品 -->
             <li v-for="(food, index) in item.foods" class="food-item border-1px" :class="{'last-child':index == item.foods.length - 1}">
               <div class="icon">
                 <img width="64" height="64" :src="food.icon" alt="">
@@ -29,19 +31,23 @@
                     ￥{{ food.oldPrice }}
                   </span>
                 </div>
+                <div class="cartcontrol-wrapper">
+                  <cartcontrolView @cartadd="_drop" :food="food" />
+                </div>
               </div>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <shopcartView :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice" />
+    <shopcartView ref="shopcart" :selectFoods="selectFoods" :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice" />
   </div>
 </template>
 
 <script>
 import BScroll from 'better-scroll'
 import shopcartView from '../shopcart/shopcartView'
+import cartcontrolView from '../cartcontrol/cartcontrolView';
 
 export default {
   name: 'goodsView',
@@ -49,7 +55,7 @@ export default {
   data() {
     return {
       classMap: [],
-      goods: {},
+      goods: [],
       listHeight: [],
       scrollY: 0
     }
@@ -64,6 +70,17 @@ export default {
         }
       }
       return 0;
+    },
+    selectFoods() {
+      let foods = [];
+      this.goods.forEach((good) => {
+        good.foods.forEach((food) => {
+          if (food.count) {
+            foods.push(food);
+          }
+        })
+      })
+      return foods;
     }
   },
   created() {
@@ -78,6 +95,9 @@ export default {
     })
   },
   methods: {
+    _drop(target) {
+      this.$refs.shopcart.drop(target);
+    },
     selectMenu(index, e) {
       if(!e._constructed) {
         return;
@@ -91,7 +111,8 @@ export default {
         click: true
       });
       this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
-        probeType: 3
+        probeType: 3,
+        click: true
       });
 
       this.foodsScroll.on('scroll', (pos) => {
@@ -110,7 +131,8 @@ export default {
     }
   },
   components: {
-    shopcartView
+    shopcartView,
+    cartcontrolView
   }
 }
 </script>
@@ -217,4 +239,8 @@ export default {
               text-decoration line-through
               font-size 10px
               color rgba(147, 153, 159, 1)
+          .cartcontrol-wrapper
+            position absolute
+            right -6px
+            bottom 10px
 </style>
