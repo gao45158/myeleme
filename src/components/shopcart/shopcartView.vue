@@ -31,27 +31,27 @@
 export default {
   name: 'shopcartView',
   data(){
-      return {
-        balls: [
-          {
-            show: false
-          },
-          {
-            show:  false
-          },
-          {
-            show:  false
-          },
-          {
-            show:  false
-          },
-          {
-            show:  false
-          }
-        ],
-        dropBalls:[]
-      }
-    },
+    return {
+      balls: [
+        {
+          show: false
+        },
+        {
+          show:  false
+        },
+        {
+          show:  false
+        },
+        {
+          show:  false
+        },
+        {
+          show:  false
+        }
+      ],
+      dropBalls:[]
+    }
+  },
   props: {
     selectFoods: {
       type: Array,
@@ -257,11 +257,11 @@ export default {
         left 32px
         bottom 22px
         z-index 200
-        transition: all 0.6s cubic-bezier(0.49, -0.29, 0.75, 0.41)
+        transition: all 0.5s cubic-bezier(0.49, -0.29, 0.75, 0.41)
         .inner
           width 16px
           height 16px
           border-radius 50%
           background rgb(0, 160, 220)
-          transition: all 0.6s linear
+          transition: all 0.5s linear
 </style>

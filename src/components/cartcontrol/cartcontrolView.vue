@@ -31,6 +31,7 @@ export default {
       }else {
         this.food.count++;
       }
+      console.log(this.food)
       this.$emit('cartadd', e.target);
     },
     decreadeCart(e) {
