@@ -37,16 +37,16 @@ export default {
           show: false
         },
         {
-          show:  false
+          show: false
         },
         {
-          show:  false
+          show: false
         },
         {
-          show:  false
+          show: false
         },
         {
-          show:  false
+          show: false
         }
       ],
       dropBalls:[]
@@ -118,6 +118,7 @@ export default {
           return;
         }
       }
+      console.log(this.balls)
     },
     beforeEnter(el){ //这个方法的执行是因为这是一个vue的监听事件
       let count = this.balls.length;
